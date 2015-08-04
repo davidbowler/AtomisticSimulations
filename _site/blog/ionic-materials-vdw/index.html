@@ -1,0 +1,164 @@
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Blog | Atomistic Computer Simulations: A Practical Guide</title>
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='/css/style.css' type='text/css' media='all' />
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #e6e6e6; }
+</style>
+<script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body class="page page-template-default custom-background custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+        <header id="masthead" class="site-header" role="banner">
+                <hgroup>
+                        <h1 class="site-title"><a href="http://www.atomisticsimulations.org/" title="Atomistic Computer Simulations: A Practical Guide" rel="home">Atomistic Computer Simulations: A Practical Guide</a></h1>
+                        <h2 class="site-description">Many books explain the theory of atomistic computer simulations; this book teaches you how to run them</h2>
+                </hgroup>
+
+                <nav id="site-navigation" class="main-navigation" role="navigation">
+                        <h3 class="menu-toggle">Menu</h3>
+                        <a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+                        <div class="nav-menu">
+                                <ul><li><a href="/index.html" title="Home">Home</a></li>
+                                        <li><a href="/about.html">About the book</a></li>
+                                        <li><a href="/blog.html">Blog</a></li>
+                                        <li><a href="/links.html">Links</a></li>
+                                        </ul>
+                        </div>
+                </nav><!-- #site-navigation -->
+
+                <a href="http://www.atomisticsimulations.org/"><img src="/img/ACSbanner.jpg" class="header-image" width="515" height="111" alt="" /></a>
+        </header><!-- #masthead -->
+
+<div id="main" class="wrapper">
+  <div id="primary" class="site-content">
+    <div id="content" role="main">
+      <article>
+        <header class="entry-header">
+        <h1>Ionic materials and van der Waals</h1>
+        <br>
+        <p>Tags: <i class="icon-tags"></i>  <a href="/tags/DFT" title="View posts tagged with &quot;DFT&quot;"><u>DFT</u></a>     <a href="/tags/vdW" title="View posts tagged with &quot;vdW&quot;"><u>vdW</u></a>   </p>
+        </header>
+        <div class="entry-content">
+          <p>One of the areas which has grown explosively in DFT in recent years is modelling van der Waals interactions (I’ve written about this <a href="/blog/dispersion-in-dft">before</a>).  The semi-empirical approach originated by Tkatchenko and Scheffler<a href="#R1">[1]</a> (normally known as TS) uses the calculated DFT charge density, which is divided between the atoms in the system to give an effective volume occupied by each atom; the ratio of this volume to a free atom volume is then used to rescale the C6 coefficients and polarisabilities found for free atoms.  This brings us to an ever-present problem with ab initio methods: how to divide a continuous charge density or wavefunction between the atoms in the system.</p>
+
+<p>TS use Hirshfeld partitioning<a href="#R2">[2]</a>, which creates a distance-dependent weight for each atom according to the ratio between the free atom charge density for the atom and the sum of free atom charge densities for the whole system.  This can be used to give a volume and hence the relevant vdW quantities (see Eq. 7-9 in <a href="#R1">[1]</a> for more detail).  But this is not the only way to divide space (and hence charge density) between atoms: Voronoi polyhedra, Bader’s atoms-in-molecules<a href="#R3">[3]</a>, and Becke’s integral partitioning<a href="#R4">[4]</a> are only some of the methods in common use, along with Mulliken charges as a way of assigning charge to atoms.  We discuss these methods in Section 17.2 of <a href="http://tiny.cc/atomistic">the book</a>, and show an example of how different methods and basis sets can change the charge by more than half an electron.</p>
+
+<p>The papers I want to discuss in this blog<a href="#R5">[5,6]</a> address another problem with the Hirshfeld approach: as it uses free, neutral atoms as the references to divide the charge density, it performs poorly for ionic materials.  Instead, they use an update of Hirshfeld partitioning which iterates the charge density decomposition, and interpolates between reference densities of the free atoms in different charge states.  It is a relatively small change to make to the process, but has a very strong effect on ionic materials, improving agreement with experiment and high-level theory markedly<a href="#R5">[5]</a>.</p>
+
+<p>Whenever a change is made to an approach, it is important to characterise the effect on the existing performance; in an extensive follow-up paper, the authors do this<a href="#R6">[6]</a>, looking at an large collection of test systems.  The main criticism that can be made of the new, iterative approach is that it worsens the modelling of molecular interactions (particularly those which have an obvious van der Waals component).  However, the improvement of other systems, particularly ionic solids and molecules interacting with charges on surfaces, is sufficiently strong that this would be well worth using in most circumstances.  The authors make the parameters they have used clear (k point meshes, plane wave cutoffs), and the approach is available in VASP (though I would have preferred to have seen it made freely available !).</p>
+
+<h1 id="a-namer1a"><a name="R1"></a></h1>
+<p>[1] Phys. Rev. Lett. <strong>102</strong>, 073005 (2009) DOI:<a href="http://dx.doi.org/10.1103/PhysRevLett.102.073005">10.1103/PhysRevLett.102.073005</a></p>
+
+<h1 id="a-namer2a"><a name="R2"></a></h1>
+<p>[2] Theor. Chim. Acta <strong>44</strong>, 129 (1977) DOI:<a href="http://dx.doi.org/10.1007/BF00549096">10.1007/BF00549096</a></p>
+
+<h1 id="a-namer3a"><a name="R3"></a></h1>
+<p>[3] <a href="http://www.chemistry.mcmaster.ca/bader/aim/">R. F. W. Bader</a>, <a href="http://ukcatalogue.oup.com/product/9780198558651.do">Atoms in Molecules: A Quantum Theory</a>, Oxford University Press (1990).</p>
+
+<h1 id="a-namer4a"><a name="R4"></a></h1>
+<p>[4] J. Chem. Phys., <strong>88</strong>, 2547 (1988) DOI:<a href="http://dx.doi.org/10.1063/1.454033">10.1063/1.454033</a></p>
+
+<h1 id="a-namer5a"><a name="R5"></a></h1>
+<p>[5] J. Chem. Theory Comput. <strong>9</strong>, 4293 (2013) DOI:<a href="http://dx.doi.org/10.1021/ct400694h">10.1021/ct400694h</a></p>
+
+<h1 id="a-namer6a"><a name="R6"></a></h1>
+<p>[6] J. Chem. Phys. <strong>141</strong>, 034114 (2014) DOI:<a href="http://dx.doi.org/10.1063/1.4890003">10.1063/1.4890003</a></p>
+
+        </div>
+        <p>This entry was posted in <a href="/categories/DFT">DFT</a> on 2014/08/08.</p>
+        <br>
+      </article><!-- #post -->
+    </div><!-- #content -->
+  <footer class="entry-meta">
+  <div class="container">
+    <p>
+       <span class="nav-previous"><a href="/blog/local-hyperdynamics" title="Previous Post: Local hyperdynamics">&laquo; Local hyperdynamics</a></span>      <span class="nav-next"><a href="/blog/testing-dft-water-qmc" title="Next Post: Testing DFT for bulk water against quantum Monte Carlo calculations">Testing DFT for bulk water against quantum Monte Carlo calculations &raquo; </a></span>   </p>
+    <br>
+    <p>Page last generated on August  4, 2015</p>
+  </div>
+</footer>
+
+  </div><!-- #primary -->
+  <div id="secondary" class="widget-area" role="complementary">
+  <aside id="recent-posts-3" class="widget">
+    <h3 class="widget-title">Recent posts</h3>
+    <div class="front-widgets">
+      <ul>
+      
+        <li><a href="/blog/Orbital-free-DFT-with-PAWs">Orbital-free DFT with PAWs</a></li>
+      
+        <li><a href="/blog/benchmarking-search-techniques">Benchmarking search techniques</a></li>
+      
+        <li><a href="/blog/Linear-scaling-methods">Linear scaling methods</a></li>
+      
+        <li><a href="/blog/energy-conserving-ab-initio-md">Energy-conserving ab initio molecular dynamics</a></li>
+      
+        <li><a href="/blog/testing-dft-water-qmc">Testing DFT for bulk water against quantum Monte Carlo calculations</a></li>
+      
+      </ul>
+    </div>
+  </aside>
+  <aside id="tag_cloud-3" class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="tagcloud">
+      <ul>
+        
+        <li><a href="/tags/ExcitedStates">ExcitedStates</a></li>
+        
+        <li><a href="/tags/non-adiabatic">non-adiabatic</a></li>
+        
+        <li><a href="/tags/DFT">DFT</a></li>
+        
+        <li><a href="/tags/testing">testing</a></li>
+        
+        <li><a href="/tags/parameters">parameters</a></li>
+        
+        <li><a href="/tags/GW">GW</a></li>
+        
+        <li><a href="/tags/hybrids">hybrids</a></li>
+        
+        <li><a href="/tags/Techniques">Techniques</a></li>
+        
+        <li><a href="/tags/MD">MD</a></li>
+        
+        <li><a href="/tags/Size">Size</a></li>
+        
+        <li><a href="/tags/Thermostat">Thermostat</a></li>
+        
+        <li><a href="/tags/LinearScaling">LinearScaling</a></li>
+        
+        <li><a href="/tags/vdW">vdW</a></li>
+        
+        <li><a href="/tags/water">water</a></li>
+        
+        <li><a href="/tags/searching">searching</a></li>
+        
+      </ul>
+    </div>
+  </aside>
+  <aside id="categories-2" class="widget widget_categories">
+    <h3 class="widget-title">Categories</h3>
+    <ul>
+      
+      <li><a href="/categories/techniques">techniques</a></li>
+      
+      <li><a href="/categories/accuracy">accuracy</a></li>
+      
+      <li><a href="/categories/dft">dft</a></li>
+      
+    </ul>
+  </aside>
+</div><!-- #secondary -->
+
+</div><!-- #main .wrapper -->
+</div><!-- #page -->
+
+</body>
+</html>

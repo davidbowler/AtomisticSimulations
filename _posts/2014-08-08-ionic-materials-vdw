@@ -1,0 +1,11 @@
+---
+layout: post
+title: Testing DFT for bulk water against quantum Monte Carlo calculations
+category: Accuracy
+tags: DFT testing water
+year: 2014
+month: 10
+day: 30
+summary: An exploration of how well DFT models perform against QMC for bulk water
+published: false
+---
