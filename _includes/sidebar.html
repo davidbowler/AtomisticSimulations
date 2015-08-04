@@ -1,0 +1,30 @@
+<div id="secondary" class="widget-area" role="complementary">
+  <aside id="recent-posts-3" class="widget">
+    <h3 class="widget-title">Recent posts</h3>
+    <div class="front-widgets">
+      <ul>
+      {% for post in site.posts offset: 0 limit: 5 %}
+        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+      {% endfor %}
+      </ul>
+    </div>
+  </aside>
+  <aside id="tag_cloud-3" class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="tagcloud">
+      <ul>
+        {% for tag in site.tags %}
+        <li><a href="/tags/{{ tag[0] }}">{{ tag[0] }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </aside>
+  <aside id="categories-2" class="widget widget_categories">
+    <h3 class="widget-title">Categories</h3>
+    <ul>
+      {% for cat in site.categories %}
+      <li><a href="/categories/{{ cat[0] }}">{{ cat[0] }}</a></li>
+      {% endfor %}
+    </ul>
+  </aside>
+</div><!-- #secondary -->

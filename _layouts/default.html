@@ -1,0 +1,30 @@
+---
+---
+{% include post_header.html %}
+<body class="page page-template-default custom-background custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+{% include masthead.html %}
+<div id="main" class="wrapper">
+  <div id="primary" class="site-content">
+    <div id="content" role="main">
+      <article>
+        <header class="entry-header">
+        <h1>{{ page.title}}</h1>
+        <br>
+        <p>Tags: <i class="icon-tags"></i> {% for tag in page.tags %} <a href="/tags/{{ tag }}" title="View posts tagged with &quot;{{ tag }}&quot;"><u>{{ tag }}</u></a>  {% if forloop.last != true %} {% endif %} {% endfor %}</p>
+        </header>
+        <div class="entry-content">
+          {{ content }}
+        </div>
+        <p>This entry was posted in <a href="/categories/{{page.category}}">{{page.category}}</a> on {{page.year}}/{{page.month}}/{{page.day}}.</p>
+        <br>
+      </article><!-- #post -->
+    </div><!-- #content -->
+  {% include post_footer.html %}
+  </div><!-- #primary -->
+  {% include sidebar.html %}
+</div><!-- #main .wrapper -->
+</div><!-- #page -->
+
+</body>
+</html>

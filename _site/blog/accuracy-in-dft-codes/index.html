@@ -1,0 +1,170 @@
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width" />
+<title>Blog | Atomistic Computer Simulations: A Practical Guide</title>
+<link rel='stylesheet' id='twentytwelve-fonts-css'  href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700&#038;subset=latin,latin-ext' type='text/css' media='all' />
+<link rel='stylesheet' id='twentytwelve-style-css'  href='/css/style.css' type='text/css' media='all' />
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #e6e6e6; }
+</style>
+<script type="text/javascript"
+            src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</head>
+
+<body class="page page-template-default custom-background custom-font-enabled single-author">
+<div id="page" class="hfeed site">
+        <header id="masthead" class="site-header" role="banner">
+                <hgroup>
+                        <h1 class="site-title"><a href="http://www.atomisticsimulations.org/" title="Atomistic Computer Simulations: A Practical Guide" rel="home">Atomistic Computer Simulations: A Practical Guide</a></h1>
+                        <h2 class="site-description">Many books explain the theory of atomistic computer simulations; this book teaches you how to run them</h2>
+                </hgroup>
+
+                <nav id="site-navigation" class="main-navigation" role="navigation">
+                        <h3 class="menu-toggle">Menu</h3>
+                        <a class="assistive-text" href="#content" title="Skip to content">Skip to content</a>
+                        <div class="nav-menu">
+                                <ul><li><a href="/index.html" title="Home">Home</a></li>
+                                        <li><a href="/about.html">About the book</a></li>
+                                        <li><a href="/blog.html">Blog</a></li>
+                                        <li><a href="/links.html">Links</a></li>
+                                        </ul>
+                        </div>
+                </nav><!-- #site-navigation -->
+
+                <a href="http://www.atomisticsimulations.org/"><img src="/img/ACSbanner.jpg" class="header-image" width="515" height="111" alt="" /></a>
+        </header><!-- #masthead -->
+
+<div id="main" class="wrapper">
+  <div id="primary" class="site-content">
+    <div id="content" role="main">
+      <article>
+        <header class="entry-header">
+        <h1>Characterising Accuracy in DFT Codes</h1>
+        <br>
+        <p>Tags: <i class="icon-tags"></i>  <a href="/tags/DFT" title="View posts tagged with &quot;DFT&quot;"><u>DFT</u></a>     <a href="/tags/testing" title="View posts tagged with &quot;testing&quot;"><u>testing</u></a>     <a href="/tags/parameters" title="View posts tagged with &quot;parameters&quot;"><u>parameters</u></a>     <a href="/tags/Techniques" title="View posts tagged with &quot;Techniques&quot;"><u>Techniques</u></a>   </p>
+        </header>
+        <div class="entry-content">
+          <p>The question of how to characterise the accuracy of a computer code is a difficult one, and I have touched on these issues before (<a href="/blog/what-if-dft-is-wrong">here</a>, <a href="/blog/increasing-accuracy">here</a> and <a href="/blog/dft-weak-interactions">here</a> for instance).  However, given the large number of codes available, it should be possible to compare them to each other and to experiment (or higher level calculations) to test them.  This is a well-established process in the quantum chemistry community, where there are various test sets for different properties, including enthalpies of formation(G97/2)<a href="#R1">[1]</a>, weak bonding (S22)<a href="#R2">[2]</a> (and a vast database of different properties<a href="#R3">[3]</a>).</p>
+
+<p>A recent paper<a href="#R4">[4]</a> and associated web site<a href="#R5">[5]</a> offers a first approach for solid state codes, with the comparison based on the differences between all-electron and pseudopotential calculations.  The presumption here is that all-electron calculations are the touchstone (though the website notes that the all-electron results have been refined to use extremely accurate tolerances and small muffin-tin radii, so there is clearly room for improvement in any method).</p>
+
+<p>The idea of the comparison is to calculate binding energy curves for most elements in the periodic table, and from these curves to derive a single number which characterises the deviation from all-electron results.  The deviation per element can be viewed, as can the deviation from experiment for the all-electron calculations.  The deviation, delta, is defined by an integral over all calculated values of volume, and thus includes implicitly both the lattice constant and the bulk modulus, though not the cohesive energy.  Most results shown on the website are for plane-wave codes, which generally perform rather well (the old norm-conserving FHI pseudopotentials are less accurate, though, and should be treated with care).</p>
+
+<p>The approach is a good one, though a little heavy on the tester, and scripts to perform the necessary calculations are made freely available.  However, the choice of the elemental form makes the tests rather restricted: there is no way to examine different types of bonding or different oxidation state, for instance.  It is quite easy to imagine developing a set of these test suites for different purposes in solid state codes, just as there are different test sets in quantum chemistry.</p>
+
+<p>The accuracy tests seem to be most illuminating for the pseudopotentials, rather than the codes themselves, and I think that it would be of immense value to the community if the pseudopotential generation details were made available.  This should not just include the core radii and the reference configurations, but also a clear description of the pseudopotential algorithm (or an appropriate reference along with details).</p>
+
+<p>There is something of a danger of using codes and supplied pseudopotential libraries as black boxes: there is a need to test parameters, though it’s rare (and I am happy to acknowledge that I don’t do it as much as I should).  This paper and associated developments should go some way to standardising plane wave codes, and giving quantitative information on their reliability.</p>
+
+<p>Note As I was writing this, a new paper in Science has just been published which takes a different view, and compares results from different functionals; it’s worth a read<a href="#R6">[6]</a></p>
+
+<h1 id="a-namer1a"><a name="R1"></a></h1>
+<p>[1] J. Chem. Phys. 106, 1063 (1997) DOI:<a href="http://dx.doi.org/10.1063/1.473182">10.1063/1.473182</a></p>
+
+<h1 id="a-namer2a"><a name="R2"></a></h1>
+<p>[2] Phys. Chem. Chem. Phys. 8, 1985 (2006) DOI:<a href="http://dx.doi.org/10.1039/B600027D">10.1039/B600027D</a></p>
+
+<h1 id="a-namer3a"><a name="R3"></a></h1>
+<p>[3] <a href="http://t1.chem.umn.edu/db/">http://t1.chem.umn.edu/db/</a> and see arXiv <a href="http://arxiv.org/abs/1212.0944">1212.0944</a></p>
+
+<h1 id="a-namer4a"><a name="R4"></a></h1>
+<p>[4] Crit. Rev. Sol. Stat. Mat. Sci. 39, 1–24. DOI:<a href="http://dx.doi.org/10.1080/10408436.2013.772503">10.1080/10408436.2013.772503</a></p>
+
+<h1 id="a-namer5a"><a name="R5"></a></h1>
+<p>[5] <a href="http://molmod.ugent.be/deltacodesdft">http://molmod.ugent.be/deltacodesdft</a></p>
+
+<h1 id="a-namer6a"><a name="R6"></a></h1>
+<p>[6] Science 345, 197 (2014) DOI:<a href="http://dx.doi.org/10.1126/science.1253486">10.1126/science.1253486</a></p>
+
+        </div>
+        <p>This entry was posted in <a href="/categories/Accuracy">Accuracy</a> on 2014/7/11.</p>
+        <br>
+      </article><!-- #post -->
+    </div><!-- #content -->
+  <footer class="entry-meta">
+  <div class="container">
+    <p>
+       <span class="nav-previous"><a href="/blog/band-offsets-gw-hybrids" title="Previous Post: Band offsets in semiconductors: GW and hybrid functionals">&laquo; Band offsets in semiconductors: GW and hybrid functionals</a></span>      <span class="nav-next"><a href="/blog/local-hyperdynamics" title="Next Post: Local hyperdynamics">Local hyperdynamics &raquo; </a></span>   </p>
+    <br>
+    <p>Page last generated on August  4, 2015</p>
+  </div>
+</footer>
+
+  </div><!-- #primary -->
+  <div id="secondary" class="widget-area" role="complementary">
+  <aside id="recent-posts-3" class="widget">
+    <h3 class="widget-title">Recent posts</h3>
+    <div class="front-widgets">
+      <ul>
+      
+        <li><a href="/blog/Orbital-free-DFT-with-PAWs">Orbital-free DFT with PAWs</a></li>
+      
+        <li><a href="/blog/benchmarking-search-techniques">Benchmarking search techniques</a></li>
+      
+        <li><a href="/blog/Linear-scaling-methods">Linear scaling methods</a></li>
+      
+        <li><a href="/blog/energy-conserving-ab-initio-md">Energy-conserving ab initio molecular dynamics</a></li>
+      
+        <li><a href="/blog/testing-dft-water-qmc">Testing DFT for bulk water against quantum Monte Carlo calculations</a></li>
+      
+      </ul>
+    </div>
+  </aside>
+  <aside id="tag_cloud-3" class="widget">
+    <h3 class="widget-title">Tags</h3>
+    <div class="tagcloud">
+      <ul>
+        
+        <li><a href="/tags/ExcitedStates">ExcitedStates</a></li>
+        
+        <li><a href="/tags/non-adiabatic">non-adiabatic</a></li>
+        
+        <li><a href="/tags/DFT">DFT</a></li>
+        
+        <li><a href="/tags/testing">testing</a></li>
+        
+        <li><a href="/tags/parameters">parameters</a></li>
+        
+        <li><a href="/tags/GW">GW</a></li>
+        
+        <li><a href="/tags/hybrids">hybrids</a></li>
+        
+        <li><a href="/tags/Techniques">Techniques</a></li>
+        
+        <li><a href="/tags/MD">MD</a></li>
+        
+        <li><a href="/tags/Size">Size</a></li>
+        
+        <li><a href="/tags/Thermostat">Thermostat</a></li>
+        
+        <li><a href="/tags/LinearScaling">LinearScaling</a></li>
+        
+        <li><a href="/tags/vdW">vdW</a></li>
+        
+        <li><a href="/tags/water">water</a></li>
+        
+        <li><a href="/tags/searching">searching</a></li>
+        
+      </ul>
+    </div>
+  </aside>
+  <aside id="categories-2" class="widget widget_categories">
+    <h3 class="widget-title">Categories</h3>
+    <ul>
+      
+      <li><a href="/categories/techniques">techniques</a></li>
+      
+      <li><a href="/categories/accuracy">accuracy</a></li>
+      
+      <li><a href="/categories/dft">dft</a></li>
+      
+    </ul>
+  </aside>
+</div><!-- #secondary -->
+
+</div><!-- #main .wrapper -->
+</div><!-- #page -->
+
+</body>
+</html>
