@@ -4,7 +4,7 @@
     <div class="front-widgets">
       <ul>
       {% for post in site.posts offset: 0 limit: 5 %}
-        <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+        <li><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
       {% endfor %}
       </ul>
     </div>
@@ -14,7 +14,7 @@
     <div class="tagcloud">
       <ul>
         {% for tag in site.tags %}
-        <li><a href="/AtomisticSimulations/tags/{{ tag[0] }}">{{ tag[0] }}</a></li>
+        <li><a href="{{ site.baseurl }}/tags/{{ tag[0] }}">{{ tag[0] }}</a></li>
         {% endfor %}
       </ul>
     </div>
@@ -23,7 +23,7 @@
     <h3 class="widget-title">Categories</h3>
     <ul>
       {% for cat in site.categories %}
-      <li><a href="/AtomisticSimulations/categories/{{ cat[0] }}">{{ cat[0] }}</a></li>
+      <li><a href="{{ site.baseurl }}/categories/{{ cat[0] }}">{{ cat[0] }}</a></li>
       {% endfor %}
     </ul>
   </aside>

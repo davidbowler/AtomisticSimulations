@@ -16,7 +16,7 @@ One of the key tasks that atomistic simulations of all types perform is to chara
 * global optimisation (finding the most stable structure for a given set of atoms – a very hard task !)
 * transition state searches, both starting from one minimum (single-ended) and interpolating between two minima (double-ended)
 
-These are hugely complex problems, and there are many methods which have been proposed to perform these searches. I have discussed some of these before ([here](/blog/local-hyperdynamics), [here](/blog/high-throughput-simulation),  and [here](/blog/accelerating-md)); there is also an overview of searching methods in Chapter 5 of the book.
+These are hugely complex problems, and there are many methods which have been proposed to perform these searches. I have discussed some of these before ([here]({{ site.baseurl }}/blog/local-hyperdynamics), [here]({{ site.baseurl }}/blog/high-throughput-simulation),  and [here]({{ site.baseurl }}/blog/accelerating-md)); there is also an overview of searching methods in Chapter 5 of the book.
 
 The paper I’m discussing in this post[[1]](#R1) proposes some benchmarks to test different methods for these optimisation problems.  They also offer a website[[2]](#R2) where the tests can be found, and new results shared.  The problems are all based around simple empirical potentials (which makes the testing relatively light).  They propose the following systems:
 
