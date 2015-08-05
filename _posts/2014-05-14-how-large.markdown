@@ -1,0 +1,34 @@
+---
+layout: post
+title: How large should your simulation be ?
+year: 2014
+month: 05
+day: 14
+tags: DFT parameters Size
+category: DFT
+published: true
+---
+A simulation cell is almost always an approximation of a larger, more complex system.  This requires some compromise in the choice of size, between accuracy (how well you approximate the larger system) and speed (how long your simulation takes to run).  Your simulation should be as large as you can afford – this is a basic requirement for getting the science right.
+
+The scaling of computational effort with system size is an important factor in determining the size that you choose.  DFT implementations scale asymptotically with the cube of system size, N, but that is only reached with a large system; often they scale with N squared, for two main reasons.  First, there are pre-factors to consider: how expensive is the N cubed part of the calculation ? If it has a small pre-factor, and the N squared part has a large pre-factor, then the cubic scaling will be negligible for a certain range of systems.  Second, for a periodic system, when the system size increases, the Brillouin zone sampling required decreases; for bulk systems a doubling in one dimension should allow a reduction by a half of the k-point mesh.  This should reduce the scaling by a factor of N (but only up to a certain point !).  Molecular mechanics/forcefield methods typically scale with N2 if all interactions are taken into account, or N for local methods.  It is possible[[1,2]](#R1) to make DFT linear scaling.
+I come from a DFT background, and it intrigues me that we have become so adept at fitting calculations in simulation cells with 200-300 atoms that most people still do this, and do not try to go further.  What interactions or factors can affect the size required ?
+
+* Electronic states (for instance dopant states in semiconductors can extend for several nanometers)
+* Strain effects (e.g. surfaces, dislocations, defects all have strain associated with them that falls off with distance)
+* Concentration effects (you need around 50,000 atoms in your simulation cell to drop below the metal-insulator transition in silicon for one dopant atom)
+* Boundary effects (this is related to strain, but is not quite the same – boundaries can involve a change in dielectric constant as well as other physical effects)
+* Charge interactions (if you have charges in a periodic cell they will interact; even for an isolated cluster the electrostatic potential falls off slowly with distance)
+* Periodic effects (related to boundary effects – imagine a molecule on a surface – do you want the molecule interacting with itself ?)
+
+I am sometimes alarmed that these effects are rarely studied.  You can easily find recent simulations of silicon surfaces with four or six layers – something which was needed ten or fifteen years ago to make the calculation feasible, but not now – and which has a strong effect on the surface electronic structure, if not the atomic structure.  It is very important to understand what effect system size will have on the system and properties you are modelling.
+
+There are low scaling DFT methods which allow you to go to several thousand atoms, even on simple workstations (almost all of them involve localised orbital basis sets, which come with their own problems).  Some of these methods also give linear scaling when appropriate restrictions are applied.  The CONQUEST code[[1]](#R1) which I co-develop has shown DFT modelling of over 2,000,000 atoms (though it was bulk silicon, this was only to make the preparation of the coordinates easy – we have performed calculations on self-assembled Ge structures on silicon with over 100,000 atoms).  We hope to have a session on taking DFT to larger system sizes at the 2015 PsiK conference, but before that, how can we encourage people to think bigger ?
+
+Papers which deal explicitly with this include:
+
+* Molecular adsorption on Si(001) http://dx.doi.org/10.1063/1.4802837
+* This comment in PRL (http://dx.doi.org/10.1103/PhysRevLett.103.189701) and the reply (http://dx.doi.org/10.1103/PhysRevLett.103.189702) which deal with slab thickness and surface states in Ge(001)
+I’m happy to add more here if you want to suggest details !
+
+<a name="R1">[1]</a> [CONQUEST](http://www.order-n.org/) is one linear scaling, or O(N), code; SIESTA, ONETEP and OPENMX are all others.
+<a name="R2">[2]</a> D. R. Bowler and T. Miyazaki, Rep. Prog. Phys. **75** 036503  (2012) [DOI:10.1088/0034-4885/75/3/036503](http://dx.doi/org/10.1088/0034-4885/75/3/036503)
