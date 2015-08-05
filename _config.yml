@@ -2,3 +2,6 @@ markdown: kramdown
 highlighter: pygments
 baseurl: /AtomisticSimulations
 permalink: /blog/:title
+name: Atomistic Computer Simulations
+description: A blog to accompany the textbook, mainly about simulating properties of materials from their atomic constituents
+url: http://www.atomisticsimulations.org/
