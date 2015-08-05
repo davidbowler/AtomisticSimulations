@@ -1,4 +1,4 @@
 markdown: kramdown
 highlighter: pygments
 baseurl: /AtomisticSimulations
-permalink: /AtomisticSimulations/blog/:title
+permalink: /blog/:title
