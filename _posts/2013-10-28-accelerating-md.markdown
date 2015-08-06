@@ -16,22 +16,22 @@ There are many approaches available to investigating long timescales[[2]](#R2). 
 
 [Note added: I meant to include a reference to accelerated MD (aMD)[[8]](#R8) which has been shown to reach the equivalent of milliseconds sampling using GPUs[[9]](#R9).]
 
-<a name="R1">[1]</a> Phys. Rev. Lett. **110**, 206001 (2013) http://dx.doi.org/10.1103/PhysRevLett.110.206001
+<a name="R1">[1]</a> Phys. Rev. Lett. **110**, 206001 (2013) [DOI:10.1103/PhysRevLett.110.206001](http://dx.doi.org/10.1103/PhysRevLett.110.206001)
 
-<a name="R2">[2]</a> Annu. Rep. Comput. Chem. **5**, 79 (2009) http://dx.doi.org/10.1016/S1574-1400(09)00504-0
+<a name="R2">[2]</a> Annu. Rep. Comput. Chem. **5**, 79 (2009) [DOI:10.1016/S1574-1400(09)00504-0](http://dx.doi.org/10.1016/S1574-1400(09)00504-0)
 
-<a name="R3">[3]</a> Phys. Rev. Lett. **78**, 3908 (1997) http://dx.doi.org/10.1103/PhysRevLett.78.3908
+<a name="R3">[3]</a> Phys. Rev. Lett. **78**, 3908 (1997) [DOI:10.1103/PhysRevLett.78.3908](http://dx.doi.org/10.1103/PhysRevLett.78.3908)
 
-<a name="R4">[4]</a> J. Chem. Phys. **139**, 144110  (2013) http://dx.doi.org/10.1063/1.4824389
+<a name="R4">[4]</a> J. Chem. Phys. **139**, 144110  (2013) [DOI:10.1063/1.4824389](http://dx.doi.org/10.1063/1.4824389)
 
-<a name="R5">[5]</a> Rep. Prog. Phys. **71**, 126601 (2008) http://dx.doi.org/10.1088/0034-4885/71/12/126601
+<a name="R5">[5]</a> Rep. Prog. Phys. **71**, 126601 (2008) [DOI:10.1088/0034-4885/71/12/126601](http://dx.doi.org/10.1088/0034-4885/71/12/126601)
 
-<a name="R6">[6]</a> Phys. Rev. B **57**, R13985 (1998) http://dx.doi.org/10.1103/PhysRevB.57.R13985
+<a name="R6">[6]</a> Phys. Rev. B **57**, R13985 (1998) [DOI:10.1103/PhysRevB.57.R13985](http://dx.doi.org/10.1103/PhysRevB.57.R13985)
 
-<a name="R7">[7]</a> Phys. Chem. Chem. Phys. **7**, 3910 (2005) http://dx.doi.org/10.1039/B509983H
+<a name="R7">[7]</a> Phys. Chem. Chem. Phys. **7**, 3910 (2005) [DOI:10.1039/B509983H](http://dx.doi.org/10.1039/B509983H)
 
-<a name="R8">[8]</a> J. Chem. Phys. **120**, 11919 (2004) http://dx.doi.org/10.1063/1.1755656
+<a name="R8">[8]</a> J. Chem. Phys. **120**, 11919 (2004) [DOI:10.1063/1.1755656](http://dx.doi.org/10.1063/1.1755656)
 
-<a name="R9">[9]</a> J. Chem. Theory Comput. **8**, 2997 (2012) http://dx.doi.org/10.1021/ct300284c
+<a name="R9">[9]</a> J. Chem. Theory Comput. **8**, 2997 (2012) [DOI:10.1021/ct300284c](http://dx.doi.org/10.1021/ct300284c)
 
 N.B. The references given above to methods are only representative; there are many papers on this subject, and a full literature search is an important pre-requisite to performing these simulations.
