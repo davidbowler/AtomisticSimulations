@@ -6,6 +6,7 @@ day: 20
 title: The strange behaviour of bismuth on Si(001)
 category: DFT
 tags: experiment
+summary: The structure of a Bi-induced feature on silicon and how it was found
 published: true
 ---
 I don’t want to turn my blog writing into a way of promoting my own papers, but a paper we published this week in Phys. Rev. B[[1]](#R1) contains some very useful points for discussion, particularly relating to comparison to experiment (Chapter 18) and the accuracy of DFT (Chapter 9 and [this post]({{ site.baseurl}}/blog/increasing-accuracy) and [this post]({{ site.baseurl}}/blog/what-if-dft-is-wrong)). An experimental group in UCL were performing STM on bismuth doped Si(001) surfaces, and found some rather unusual images (an illustration is given below). I’ve worked on Si(001) with experimentalists since the start of my doctorate, and had never seen anything like this before.

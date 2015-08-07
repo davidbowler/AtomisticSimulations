@@ -7,6 +7,7 @@ day: 17
 category: techniques
 tags: MD software
 summary: A novel approach to finding the free energy difference between two phases of a material
+published: true
 ---
 A calculation of the free energy difference between two phases of a material can be used to explore first-order transitiona between phases, such as melting. We cover free energy differences in the book in secion 6.5, with a very relevant example also discussed in section 4.6, on the melting of iron under the conditions at the Earth’s core. The standard ab initio approach to free energy differences is to use thermodynamic integration, effectively making the transition from a simple system with a known free energy to the complex system of interest. This requires an appropriate simple system – often a model potential is used, if a sufficiently reliable potential is available. An alternative, which has become more viable as computers have become more powerful, is direct simulation of coexistence: a series of large simulations, set at different conditions, can be used to find the thermodynamic variables which allow co-existence (this approach is exactly what’s discussed in Section 4.6 and the source paper[[1]](#R1)).
 
