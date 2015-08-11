@@ -5,7 +5,7 @@ month: 07
 day: 20
 title: The strange behaviour of bismuth on Si(001)
 category: DFT
-tags: experiment
+tags: experiment Comparison
 summary: The structure of a Bi-induced feature on silicon and how it was found
 published: true
 ---
