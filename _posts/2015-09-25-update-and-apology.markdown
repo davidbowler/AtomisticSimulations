@@ -3,9 +3,10 @@ layout: post
 year: 2015
 month: 09
 day: 25
-title: An update and an apology
 category: announcements
 tags: comments
+summary: A brief update
+title: An update and an apology
 published: true
 ---
 I have not blogged since January; in part, this is down to the pressures of
