@@ -60,7 +60,7 @@ quantify carefully the limitations and effects of the approaches we choose.
 
 [<a name="R1">[1]</a> Rev. Mod. Phys. **87**, 897 (2015) [DOI:10.1103/RevModPhys.87.897](http://dx.doi.org/10.1103/RevModPhys.87.897)
 
-[<a name="R2">[2]</a> J. Chem. Phys. **124**, 221101 (2006) [DOI:10.1063/1.2213970􏰩](http://dx.doi.org/10.1063/1.2213970􏰩)
+[<a name="R2">[2]</a> J. Chem. Phys. **124**, 221101 (2006) [DOI:10.1063/1.2213970􏰩](http://dx.doi.org/10.1063/1.2213970)
 
 [<a name="R3">[3]</a> Phys. Rev. Lett. **102**, 226401 (2009) [DOI:10.1103/PhysRevLett.102.226401](http://dx.doi.org/10.1103/PhysRevLett.102.226401)
 
