@@ -62,6 +62,6 @@ techniques such as linear scaling DFT (see
 for more details) will be able to contribute to this area, and generate more
 quantitative information.
 
-[<a name="R1">1]</a> Phys. Rev. Lett. **110**, 166102 (2013) [DOI:10.1103/PhysRevLett.110.166102](http://doi.dx.org/10.1103/PhysRevLett.110.166102)
+<a name="R1">[1]</a> Phys. Rev. Lett. **110**, 166102 (2013) [DOI:10.1103/PhysRevLett.110.166102](http://doi.dx.org/10.1103/PhysRevLett.110.166102)
 
 <a name="R2">[2]</a> Rep. Prog. Phys. **75**, 036503 (2012) [DOI:](http://doi.dx.org/)
