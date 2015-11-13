@@ -47,7 +47,7 @@ strongly on the starting point, as illustrated below for a simple, two-dimension
 problem where we ought to be able to find the ground state in two steps.
 
 ![Figure showing a simple energy surface and a steepest descent trajectory
-which converges extremely slowly]({{ site.baseurl }}/img/SDplot.png)
+which converges extremely slowly]({{ site.baseurl }}/img/SDPlot.png)
 
 There are two reasons that steepest descents performs so badly: first, it takes
 no account of previous minimisations; second, it does not use any information
