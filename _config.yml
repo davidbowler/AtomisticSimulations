@@ -1,5 +1,5 @@
 markdown: kramdown
-highlighter: pygments
+highlighter: rouge
 baseurl: /AtomisticSimulations
 permalink: /blog/:title
 name: Atomistic Computer Simulations
